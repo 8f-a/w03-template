@@ -70,7 +70,8 @@ jobs:
           platforms: linux/amd64
           context: ./${{ matrix.service }}
           file: ./${{ matrix.service }}/Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
+          push: false
+          load: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha,scope=${{ github.workflow }}-${{ matrix.service }}
